@@ -10,6 +10,6 @@ echo "-----删除html目录------"
 cd ../book/duliao116.github.io/
 git pull origin master
 git add .
-git commit -m 'update'
+git commit -m "$1"
 git push origin master
 echo "部署完成"
