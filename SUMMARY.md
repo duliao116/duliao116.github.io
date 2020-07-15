@@ -9,6 +9,6 @@
     * [博客1](blog/1.md)
     * [博客2](blog/2.md)
 * [日记类](diary/README.md)
-    * [日记1](diary/1.md)
-    * [日记2](diary/2.md)
+    * [20200612](diary/20200612.md)
+    * [20200715](diary/20200715.md)
 
