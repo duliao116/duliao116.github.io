@@ -3,6 +3,10 @@ module.exports = {
     description: '沐小家的故事',
     dest: 'dist', /* 打包文件基础路径, 在命令所在目录下 */
     themeConfig: {
+        lastUpdated: 'Last Updated', // string | boolean
+        search: true,
+        searchMaxSuggestions: 10,
+
         sidebar: [
             {
               title: '工具',
