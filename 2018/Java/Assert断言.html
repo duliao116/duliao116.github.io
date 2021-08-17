@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Assert断言 | 沐小家</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="沐小家的故事">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.1fd71441.js" as="script"><link rel="preload" href="/assets/js/2.dac15abe.js" as="script"><link rel="preload" href="/assets/js/7.b2d5c781.js" as="script"><link rel="prefetch" href="/assets/js/10.05129ae5.js"><link rel="prefetch" href="/assets/js/11.790ee459.js"><link rel="prefetch" href="/assets/js/12.dc7210ca.js"><link rel="prefetch" href="/assets/js/13.8e6c156a.js"><link rel="prefetch" href="/assets/js/14.1ea4eb15.js"><link rel="prefetch" href="/assets/js/15.3db17d2d.js"><link rel="prefetch" href="/assets/js/16.7ec6aaf5.js"><link rel="prefetch" href="/assets/js/17.67ad97fb.js"><link rel="prefetch" href="/assets/js/18.b8d96c4a.js"><link rel="prefetch" href="/assets/js/19.65a3db79.js"><link rel="prefetch" href="/assets/js/3.06f935b9.js"><link rel="prefetch" href="/assets/js/4.2a5d96fc.js"><link rel="prefetch" href="/assets/js/5.fd255a4a.js"><link rel="prefetch" href="/assets/js/6.66b67ff0.js"><link rel="prefetch" href="/assets/js/8.f736a749.js"><link rel="prefetch" href="/assets/js/9.700ca077.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">沐小家</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>2018</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>英语</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>总结</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/2018/Java/Assert断言.html" class="active sidebar-link">Assert断言</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/2018/Java/Assert断言.html#条件判断方式" class="sidebar-link">条件判断方式</a></li><li class="sidebar-sub-header"><a href="/2018/Java/Assert断言.html#ibatis方式" class="sidebar-link">ibatis方式</a></li><li class="sidebar-sub-header"><a href="/2018/Java/Assert断言.html#spring方式" class="sidebar-link">spring方式</a></li></ul></li><li><a href="/2018/Java/cleanCodeTrain.html" class="sidebar-link">代码整洁之道-培训总结</a></li><li><a href="/2018/Java/Exception2String.html" class="sidebar-link">Exception to String</a></li><li><a href="/2018/Java/queryForLong.html" class="sidebar-link">queryForLong</a></li><li><a href="/2018/Java/POI之合并单元格.html" class="sidebar-link">POI之合并单元格</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>最近，遇到一个计算生态补偿金额的业务，具体的计算公式是一个比较麻烦的东西，里面各种数据符号，什么Σ、Φ、α、β之类的玩意，对于我来说，好久不见这些东西，符号该怎么读都差不多忘记了，很是苦恼。最后终于跟客户弄清楚了，公式的意义，就开始编码计算。</p> <p>公式的数据来源是数据库中查出来的，但数据库中的数据并非就是完整的、干净的，就是说我再处理α*β这类玩意的时候很有可能从数据库中查出来的是一个非数字字符串，或者null数据。那么问题来了，这样子去计算公式程序必然会报各种异常，然后跟客户反应后客户提出要求：运行公式前，先检查公式需要数据的完整性，如果公式需要的数据不符合要求，就在页面上给客户提示，哪些数据有问题。</p> <h2 id="条件判断方式"><a href="#条件判断方式" class="header-anchor">#</a> 条件判断方式</h2> <p>将数据从数据库中查出，依次按照各个数据的校验条件进行校验，使用返回字符串的形式返回校验结果。</p> <div class="language- extra-class"><pre class="language-text"><code>	public String validate(){
+	String errorInfo=&quot;&quot;;
+	//dataA from database
+	if(dataA == null){//或者其他条件要求，例如dataA必须为数字，数字范围在[1,20]等
+		errorInfo = &quot;dataA 数据有误&quot;;
+		return;
+	}
+	//dataB from database
+	if(dataB == null){//或者其他条件要求，例如dataA必须为数字，数字范围在[1,20]等
+		errorInfo = &quot;dataB 数据有误&quot;;
+		return;
+	}
+	...
+	//校验完毕，开始执行公式计算
+	}
+</code></pre></div><p>这种方式就会有大量的检查代码，重复的逻辑判断<em>a==null</em>,<em>a is number</em>等，使代码看起来冗长切不易理解，校验代码和执行代码实际上就可以是两个不同的模块。</p> <h2 id="ibatis方式"><a href="#ibatis方式" class="header-anchor">#</a> ibatis方式</h2> <p>最近在看ibatis源代码时看到它在处理异常信息时使用了一种非常有趣的方式。首先，有一个保存错误信息的类ErrorContext:</p> <div class="language- extra-class"><pre class="language-text"><code>
+	public class ErrorContext {
+
+ 	 private String resource;
+ 	 private String activity;
+ 	 private String objectId;
+ 	 private String moreInfo;
+ 	 private Throwable cause;
+	 //setter
+	 //getter
+ 	 public String toString() {
+   	 StringBuffer message = new StringBuffer();
+	    // resource
+	    if (resource != null) {
+	      message.append(&quot;  \n--- The error occurred in &quot;);
+	      message.append(resource);
+	      message.append(&quot;.&quot;);
+	    }	
+	    // activity
+	    if (activity != null) {
+	      message.append(&quot;  \n--- The error occurred while &quot;);
+	      message.append(activity);
+	      message.append(&quot;.&quot;);
+	    }
+	    // object
+	    if (objectId != null) {
+	      message.append(&quot;  \n--- Check the &quot;);
+	      message.append(objectId);
+	      message.append(&quot;.&quot;);
+	    }
+	    // more info
+	    if (moreInfo != null) {
+	      message.append(&quot;  \n--- &quot;);
+	      message.append(moreInfo);
+	    }
+	    // cause
+	    if (cause != null) {
+	      message.append(&quot;  \n--- Cause: &quot;);
+	      message.append(cause.toString());
+	    }
+	    return message.toString();
+	  }
+	  public void reset() {
+	    resource = null;
+	    activity = null;
+	    objectId = null;
+	    moreInfo = null;
+	    cause = null;
+	  }	
+	}
+</code></pre></div><p>然后在程序中使用时，直接在执行每一步关键代码的前面set校验信息，如果程序的下一步出现异常，那就跳到catch块中，将具体的异常信息保存到ErrorContext对象中，最终在处理异常时，就可以将详细的异常信息展示出来：</p> <div class="language- extra-class"><pre class="language-text"><code>	protected void executeQueryWithCallback(StatementScope statementScope, Connection conn, Object parameterObject, Object resultObject, RowHandler rowHandler, int skipResults, int maxResults)
+      throws SQLException {
+	//开始设置异常信息
+    ErrorContext errorContext = statementScope.getErrorContext();
+    errorContext.setActivity(&quot;preparing the mapped statement for execution&quot;);
+    errorContext.setObjectId(this.getId());
+    errorContext.setResource(this.getResource());
+
+    try {
+      parameterObject = validateParameter(parameterObject);
+
+      Sql sql = getSql();
+	  //执行代码前设置异常信息
+      errorContext.setMoreInfo(&quot;Check the parameter map.&quot;);
+      ParameterMap parameterMap = sql.getParameterMap(statementScope, parameterObject);
+
+      errorContext.setMoreInfo(&quot;Check the result map.&quot;);
+      ResultMap resultMap = sql.getResultMap(statementScope, parameterObject);
+
+      statementScope.setResultMap(resultMap);
+      statementScope.setParameterMap(parameterMap);
+
+      errorContext.setMoreInfo(&quot;Check the parameter map.&quot;);
+      Object[] parameters = parameterMap.getParameterObjectValues(statementScope, parameterObject);
+
+      errorContext.setMoreInfo(&quot;Check the SQL statement.&quot;);
+      String sqlString = sql.getSql(statementScope, parameterObject);
+
+      errorContext.setActivity(&quot;executing mapped statement&quot;);
+      errorContext.setMoreInfo(&quot;Check the SQL statement or the result map.&quot;);
+      RowHandlerCallback callback = new RowHandlerCallback(resultMap, resultObject, rowHandler);
+      sqlExecuteQuery(statementScope, conn, sqlString, parameters, skipResults, maxResults, callback);
+
+      errorContext.setMoreInfo(&quot;Check the output parameters.&quot;);
+      if (parameterObject != null) {
+        postProcessParameterObject(statementScope, parameterObject, parameters);
+      }
+
+      errorContext.reset();
+      sql.cleanup(statementScope);
+      notifyListeners();
+    } catch (SQLException e) {
+	  //异常信息保存近errorContext对象中
+      errorContext.setCause(e);
+      throw new NestedSQLException(errorContext.toString(), e.getSQLState(), e.getErrorCode(), e);
+    } catch (Exception e) {
+      errorContext.setCause(e);
+      throw new NestedSQLException(errorContext.toString(), e);
+    }
+	}
+
+</code></pre></div><p><em>这种方式的好处就是不必挨个的去使用if语句判断，只需要在合适的地方加上错误信息的保存，程序的正常执行逻辑不变，当正常执行逻辑出现异常时，自然就会中断，然后此时保存的异常信息就是最近的信息。
+当然，这种方式处理较为复杂的条件判断是就会比较麻烦，比如:a的数字范围是[10,20]，如果a的数值为30，带入到公式中，公式也是可以计算的，不会出现异常。</em></p> <h2 id="spring方式"><a href="#spring方式" class="header-anchor">#</a> spring方式</h2> <p>使用过Spring的同学想必就见过这样的代码:</p> <div class="language- extra-class"><pre class="language-text"><code>	public void addCallback(ListenableFutureCallback&lt;? super T&gt; callback) {
+		Assert.notNull(callback, &quot;'callback' must not be null&quot;);
+		synchronized (mutex) {
+			switch (state) {
+				case NEW:
+					callbacks.add(callback);
+					break;
+				case SUCCESS:
+					callback.onSuccess((T)result);
+					break;
+				case FAILURE:
+					callback.onFailure((Throwable) result);
+					break;
+			}
+		}
+	}
+
+</code></pre></div><p>Spring中的很多操作的一开始都有这么一个断言Assert.notNull()，那么这个notNull()方法是什么呢？</p> <div class="language- extra-class"><pre class="language-text"><code>	public static void notNull(Object object, String message) {
+		if (object == null) {
+			throw new IllegalArgumentException(message);
+		}
+	}
+
+	public static void notNull(Object object) {
+		notNull(object, &quot;[Assertion failed] - this argument is required; it must not be null&quot;);
+	}
+</code></pre></div><p>可以看出，如果断言失败，那么程序就会抛出异常，这是非常严格的校验方式了。看到这里，有人也行会问，这根我们的校验有什么关系，我们是要返回具体的校验信息的。到这里，我们其实可以看出，假如我们想要返回具体的校验信息，只需要综合ibatis和spring的异常处理方式，在Assert之前把错误信息set近Context中就行了:</p> <div class="language- extra-class"><pre class="language-text"><code>	public String validate(){
+	try{
+		//dataA from database
+		errorContext.setErrorInfo(&quot;数据A不能为空&quot;);
+		Assert.notNull(dataA);
+		errorContext.setErrorInfo(&quot;数据范围为[10,20]&quot;);
+		Assert.range(10,20);
+	}catch(Exception e){
+		//返回异常信息
+		return errorContext.toString();
+	}
+	...
+	//校验完毕，开始执行公式计算
+	}
+</code></pre></div><p>这样，既避免的代码重复，逻辑混乱，也可以更好的返回详细信息。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/2018/英语/李雷说英语-6.html" class="prev">
+        李雷说英语(6)
+      </a></span> <span class="next"><a href="/2018/Java/cleanCodeTrain.html">
+        代码整洁之道-培训总结
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.1fd71441.js" defer></script><script src="/assets/js/2.dac15abe.js" defer></script><script src="/assets/js/7.b2d5c781.js" defer></script>
+  </body>
+</html>
