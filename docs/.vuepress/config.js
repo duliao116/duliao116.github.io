@@ -7,7 +7,8 @@ module.exports = {
             {
               title: '工具',
               children: [
-                  '/工具/idea_mac_keys'
+                  '/工具/idea_mac_keys',
+                  '/工具/test'
               ]
             },
             {
