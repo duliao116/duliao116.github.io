@@ -1,0 +1,19 @@
+{
+  "name": "note",
+  "homepage": "https://duliao116.github.io",
+  "version": "1.0.0",
+  "description": "笔记总结",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "predeploy": "vuepress build docs",
+    "deploy": "gh-pages -d dist -b master -r git@github.com:duliao116/duliao116.github.io.git -u duliao116@163.com"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^3.2.3",
+    "vuepress": "^1.8.2"
+  }
+}
