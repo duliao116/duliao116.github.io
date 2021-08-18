@@ -6,7 +6,7 @@ module.exports = {
         lastUpdated: 'Last Updated', // string | boolean
         search: true,
         searchMaxSuggestions: 10,
-
+        /*侧边栏导航配置 */
         sidebar: [
             {
               title: '工具',
@@ -40,7 +40,23 @@ module.exports = {
                       ]
                   }
               ]
+            },
+            {
+              title: '工作',
+              children: [
+                  '/工作/设计和实现如何保持一致'
+              ]
             }
-          ]
+        ],
+    },
+    /*markdown配置*/
+    markdown: {
+      lineNumbers: true,
+      /*markdown 扩展插件配置*/
+      extendMarkdown: md => {
+        // md.set({ breaks: true })
+        console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@')
+        md.use(require('markdown-it-plantuml'))
+      }
     }
 }
