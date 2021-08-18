@@ -13,7 +13,7 @@ tags:
 ## 条件判断方式
 将数据从数据库中查出，依次按照各个数据的校验条件进行校验，使用返回字符串的形式返回校验结果。
 
-```
+```java
 	public String validate(){
 	String errorInfo="";
 	//dataA from database
@@ -35,7 +35,7 @@ tags:
 ## ibatis方式
 最近在看ibatis源代码时看到它在处理异常信息时使用了一种非常有趣的方式。首先，有一个保存错误信息的类ErrorContext:
 
-```
+```java
 
 	public class ErrorContext {
 
@@ -90,7 +90,7 @@ tags:
 
 然后在程序中使用时，直接在执行每一步关键代码的前面set校验信息，如果程序的下一步出现异常，那就跳到catch块中，将具体的异常信息保存到ErrorContext对象中，最终在处理异常时，就可以将详细的异常信息展示出来：
 
-```
+```java
 	protected void executeQueryWithCallback(StatementScope statementScope, Connection conn, Object parameterObject, Object resultObject, RowHandler rowHandler, int skipResults, int maxResults)
       throws SQLException {
 	//开始设置异常信息
@@ -150,7 +150,7 @@ tags:
 
 使用过Spring的同学想必就见过这样的代码:
 
-```
+```java
 	public void addCallback(ListenableFutureCallback<? super T> callback) {
 		Assert.notNull(callback, "'callback' must not be null");
 		synchronized (mutex) {
@@ -172,7 +172,7 @@ tags:
 
 Spring中的很多操作的一开始都有这么一个断言Assert.notNull()，那么这个notNull()方法是什么呢？
 
-```
+```java
 	public static void notNull(Object object, String message) {
 		if (object == null) {
 			throw new IllegalArgumentException(message);
@@ -186,7 +186,7 @@ Spring中的很多操作的一开始都有这么一个断言Assert.notNull()，�
 
 可以看出，如果断言失败，那么程序就会抛出异常，这是非常严格的校验方式了。看到这里，有人也行会问，这根我们的校验有什么关系，我们是要返回具体的校验信息的。到这里，我们其实可以看出，假如我们想要返回具体的校验信息，只需要综合ibatis和spring的异常处理方式，在Assert之前把错误信息set近Context中就行了:
 
-```
+```java
 	public String validate(){
 	try{
 		//dataA from database

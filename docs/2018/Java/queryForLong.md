@@ -8,7 +8,7 @@ categories: java
 使用spring jdbcTemplate查询单值结果时，例如queryForLong、queryForInt这种，如果数据库返回的结果为空，就会报错，而我们希望的结果，一般都是有值的话就返回值，没值的花就返回null
 这样，就要使用这种方式
 
-```
+```java
 jdbcTemplate.query(sql, values, new ResultSetExtractor<Long>(){
     @Override
     public Long extractData(ResultSet rs) throws SQLException, DataAccessException{
@@ -22,14 +22,14 @@ jdbcTemplate.query(sql, values, new ResultSetExtractor<Long>(){
 
 不能采用这样的方式
 
-```
+```java
 jdbcTemplate.queryForObject(sql, values, Long.class);
 ```
 
 也不能采用
 
 
-```
+```java
 jdbcTemplate.queryForObject(sql, values, someRowMapper)
 ```
 

@@ -2,7 +2,7 @@
 home: true
 heroImage: /wm.png
 heroText: 沐小家
-tagline: 太子洗马在此
+tagline: 
 actionText: 点击进入 →
 actionLink: /工具/test
 features:
