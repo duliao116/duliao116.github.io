@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>POI之合并单元格 | 沐小家</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="沐小家的故事">
+    
+    <link rel="preload" href="/assets/css/0.styles.35bcedcf.css" as="style"><link rel="preload" href="/assets/js/app.0a845d15.js" as="script"><link rel="preload" href="/assets/js/2.232ec699.js" as="script"><link rel="preload" href="/assets/js/10.3de6a5cc.js" as="script"><link rel="prefetch" href="/assets/js/11.6a82f1ea.js"><link rel="prefetch" href="/assets/js/12.3f8d1ceb.js"><link rel="prefetch" href="/assets/js/13.6c630fef.js"><link rel="prefetch" href="/assets/js/14.e1b22857.js"><link rel="prefetch" href="/assets/js/15.9a56beb6.js"><link rel="prefetch" href="/assets/js/16.962b441a.js"><link rel="prefetch" href="/assets/js/17.a15b5f06.js"><link rel="prefetch" href="/assets/js/18.feeb2f65.js"><link rel="prefetch" href="/assets/js/19.bd3013de.js"><link rel="prefetch" href="/assets/js/20.7baf1046.js"><link rel="prefetch" href="/assets/js/21.e6721b64.js"><link rel="prefetch" href="/assets/js/22.0629a561.js"><link rel="prefetch" href="/assets/js/23.87af31d5.js"><link rel="prefetch" href="/assets/js/24.f0467345.js"><link rel="prefetch" href="/assets/js/25.492e1940.js"><link rel="prefetch" href="/assets/js/26.f10fb236.js"><link rel="prefetch" href="/assets/js/3.b79a0801.js"><link rel="prefetch" href="/assets/js/4.a5139c71.js"><link rel="prefetch" href="/assets/js/5.d06a7abd.js"><link rel="prefetch" href="/assets/js/6.66b11238.js"><link rel="prefetch" href="/assets/js/7.4d065e1a.js"><link rel="prefetch" href="/assets/js/8.6d7a1f84.js"><link rel="prefetch" href="/assets/js/9.4e3e49a1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.35bcedcf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">沐小家</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/java/" class="nav-link router-link-active">
+  java
+</a></div><div class="nav-item"><a href="/主页/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习" class="dropdown-title"><span class="title">学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习" class="mobile-dropdown-title"><span class="title">学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/学习/DDD学习笔记/" class="nav-link">
+  DDD学习笔记
+</a></li><li class="dropdown-item"><!----> <a href="/学习/英语/" class="nav-link">
+  英语
+</a></li><li class="dropdown-item"><!----> <a href="/学习/修身/" class="nav-link">
+  修身
+</a></li></ul></div></div><div class="nav-item"><a href="/工作/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/工具/" class="nav-link">
+  工具
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/java/" class="nav-link router-link-active">
+  java
+</a></div><div class="nav-item"><a href="/主页/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习" class="dropdown-title"><span class="title">学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习" class="mobile-dropdown-title"><span class="title">学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/学习/DDD学习笔记/" class="nav-link">
+  DDD学习笔记
+</a></li><li class="dropdown-item"><!----> <a href="/学习/英语/" class="nav-link">
+  英语
+</a></li><li class="dropdown-item"><!----> <a href="/学习/修身/" class="nav-link">
+  修身
+</a></li></ul></div></div><div class="nav-item"><a href="/工作/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/工具/" class="nav-link">
+  工具
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Java</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/" aria-current="page" class="sidebar-link">概述</a></li><li><a href="/java/Assert断言.html" class="sidebar-link">Assert断言</a></li><li><a href="/java/Exception2String.html" class="sidebar-link">Exception to String</a></li><li><a href="/java/POI之合并单元格.html" class="active sidebar-link">POI之合并单元格</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/java/cleanCodeTrain.html" class="sidebar-link">代码整洁之道-培训总结</a></li><li><a href="/java/queryForLong.html" class="sidebar-link">queryForLong</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="poi之合并单元格"><a href="#poi之合并单元格" class="header-anchor">#</a> POI之合并单元格</h1> <h3 id="基础使用"><a href="#基础使用" class="header-anchor">#</a> 基础使用</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token class-name">Row</span> row <span class="token operator">=</span> sheet<span class="token punctuation">.</span><span class="token function">createRow</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Cell</span> cell <span class="token operator">=</span> row<span class="token punctuation">.</span><span class="token function">createCell</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cell<span class="token punctuation">.</span><span class="token function">setCellValue</span><span class="token punctuation">(</span><span class="token string">&quot;some string&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 合并第一行1~5列为一个单元格</span>
+sheet<span class="token punctuation">.</span><span class="token function">addMergedRegion</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CellRangeAddress</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="性能问题"><a href="#性能问题" class="header-anchor">#</a> 性能问题</h3> <p>以上代码在平常的情况下是没有问题的，但是如果循环执行，如：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">Row</span> row <span class="token operator">=</span> sheet<span class="token punctuation">.</span><span class="token function">createRow</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Cell</span> cell <span class="token operator">=</span> row<span class="token punctuation">.</span><span class="token function">createCell</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cell<span class="token punctuation">.</span><span class="token function">setCellValue</span><span class="token punctuation">(</span><span class="token string">&quot;some string&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 合并第一行1~5列为一个单元格</span>
+    sheet<span class="token punctuation">.</span><span class="token function">addMergedRegion</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CellRangeAddress</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>此时，由于代码行</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>sheet<span class="token punctuation">.</span><span class="token function">addMergedRegion</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CellRangeAddress</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>的性能问题引起的运行时间累积会很明显，需要修改为</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>sheet<span class="token punctuation">.</span><span class="token function">addMergedRegionUnsafe</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CellRangeAddress</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>可以解决此类性能问题</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/19/2021, 11:54:25 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/java/Exception2String.html" class="prev">
+        Exception to String
+      </a></span> <span class="next"><a href="/java/cleanCodeTrain.html">
+        代码整洁之道-培训总结
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0a845d15.js" defer></script><script src="/assets/js/2.232ec699.js" defer></script><script src="/assets/js/10.3de6a5cc.js" defer></script>
+  </body>
+</html>
