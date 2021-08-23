@@ -4,7 +4,7 @@ heroImage: /wm.png
 heroText: 沐小家
 tagline: 
 actionText: 点击进入 →
-actionLink: /home/
+actionLink: /主页/
 features:
 - title: 小情小趣
   details: 记录日常小事，满足写作乐趣。
