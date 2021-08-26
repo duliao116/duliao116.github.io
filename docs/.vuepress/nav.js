@@ -23,6 +23,11 @@ module.exports = [
         "text": "修身",
         "link": "/学习/修身/"
       }
+      ,
+      {
+        "text": "Python",
+        "link": "/学习/python/"
+      }
     ]
   },
   {
