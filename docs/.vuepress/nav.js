@@ -37,5 +37,9 @@ module.exports = [
   {
     "text": "工具",
     "link": "/工具/"
+  },
+  {
+    "text": "技巧",
+    "link": "/技巧/"
   }
 ];
