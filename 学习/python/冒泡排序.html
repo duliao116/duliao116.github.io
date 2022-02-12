@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>冒泡排序 | 沐小家</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="沐小家的故事">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.2d816148.js" as="script"><link rel="preload" href="/assets/js/2.232ec699.js" as="script"><link rel="preload" href="/assets/js/21.e98af7c6.js" as="script"><link rel="prefetch" href="/assets/js/10.747e897c.js"><link rel="prefetch" href="/assets/js/11.9d175e1d.js"><link rel="prefetch" href="/assets/js/12.0772a8f7.js"><link rel="prefetch" href="/assets/js/13.f3cdfbd8.js"><link rel="prefetch" href="/assets/js/14.f01303a0.js"><link rel="prefetch" href="/assets/js/15.770b1121.js"><link rel="prefetch" href="/assets/js/16.524625da.js"><link rel="prefetch" href="/assets/js/17.a70fdf28.js"><link rel="prefetch" href="/assets/js/18.a4bbd04c.js"><link rel="prefetch" href="/assets/js/19.218bcbb6.js"><link rel="prefetch" href="/assets/js/20.f6badf9a.js"><link rel="prefetch" href="/assets/js/22.4b660363.js"><link rel="prefetch" href="/assets/js/23.86414152.js"><link rel="prefetch" href="/assets/js/24.71650027.js"><link rel="prefetch" href="/assets/js/25.c6126abb.js"><link rel="prefetch" href="/assets/js/26.6f90b69e.js"><link rel="prefetch" href="/assets/js/27.7c152293.js"><link rel="prefetch" href="/assets/js/28.a75a9f38.js"><link rel="prefetch" href="/assets/js/29.9a52c7de.js"><link rel="prefetch" href="/assets/js/3.b6b3e67a.js"><link rel="prefetch" href="/assets/js/30.8f6270c8.js"><link rel="prefetch" href="/assets/js/31.6f6df40b.js"><link rel="prefetch" href="/assets/js/32.5721607b.js"><link rel="prefetch" href="/assets/js/33.489ae786.js"><link rel="prefetch" href="/assets/js/34.b01bb98f.js"><link rel="prefetch" href="/assets/js/35.a23ead29.js"><link rel="prefetch" href="/assets/js/36.d32b49eb.js"><link rel="prefetch" href="/assets/js/37.c3d51275.js"><link rel="prefetch" href="/assets/js/38.3fd39dcc.js"><link rel="prefetch" href="/assets/js/39.980aa601.js"><link rel="prefetch" href="/assets/js/4.e6969d5e.js"><link rel="prefetch" href="/assets/js/40.054bf44a.js"><link rel="prefetch" href="/assets/js/5.6d08c689.js"><link rel="prefetch" href="/assets/js/6.66b11238.js"><link rel="prefetch" href="/assets/js/7.4d065e1a.js"><link rel="prefetch" href="/assets/js/8.21c816b2.js"><link rel="prefetch" href="/assets/js/9.c70d6271.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">沐小家</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/主页/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习" class="dropdown-title"><span class="title">学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习" class="mobile-dropdown-title"><span class="title">学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/学习/DDD学习笔记/" class="nav-link">
+  DDD学习笔记
+</a></li><li class="dropdown-item"><!----> <a href="/学习/英语/" class="nav-link">
+  英语
+</a></li><li class="dropdown-item"><!----> <a href="/学习/修身/" class="nav-link">
+  修身
+</a></li><li class="dropdown-item"><!----> <a href="/学习/python/" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><a href="/工作/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/工具/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/技巧/" class="nav-link">
+  技巧
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/主页/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习" class="dropdown-title"><span class="title">学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习" class="mobile-dropdown-title"><span class="title">学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/学习/DDD学习笔记/" class="nav-link">
+  DDD学习笔记
+</a></li><li class="dropdown-item"><!----> <a href="/学习/英语/" class="nav-link">
+  英语
+</a></li><li class="dropdown-item"><!----> <a href="/学习/修身/" class="nav-link">
+  修身
+</a></li><li class="dropdown-item"><!----> <a href="/学习/python/" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><a href="/工作/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/工具/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/技巧/" class="nav-link">
+  技巧
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Python</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/%E5%AD%A6%E4%B9%A0/python/" aria-current="page" class="sidebar-link">python学习笔记(1)</a></li><li><a href="/学习/python/python学习笔记(2).html" class="sidebar-link">python学习笔记(2)</a></li><li><a href="/学习/python/冒泡排序.html" class="active sidebar-link">冒泡排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/学习/python/冒泡排序.html#基本冒泡" class="sidebar-link">基本冒泡</a></li><li class="sidebar-sub-header"><a href="/学习/python/冒泡排序.html#优化" class="sidebar-link">优化</a></li><li class="sidebar-sub-header"><a href="/学习/python/冒泡排序.html#再优化" class="sidebar-link">再优化</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="基本冒泡"><a href="#基本冒泡" class="header-anchor">#</a> 基本冒泡</h2> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">sort_1</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    冒泡排序基本实现
+    :param numbers: 待排序列表
+    &quot;&quot;&quot;</span>
+    length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>length <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                tmp <span class="token operator">=</span> numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
+                numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>外层遍历n-1次，故而从1开始；内层便利次数越来越少。</p></div> <h2 id="优化"><a href="#优化" class="header-anchor">#</a> 优化</h2> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">sort_2</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    冒泡排序，优化已经有序后的循环
+    :param numbers: 待排序列表
+    &quot;&quot;&quot;</span>
+    length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        is_sorted <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>length <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                tmp <span class="token operator">=</span> numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
+                numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp
+                is_sorted <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">if</span> is_sorted<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>一旦某次循环发现已经有序，立刻退出循环，排序完成。</p></div> <h2 id="再优化"><a href="#再优化" class="header-anchor">#</a> 再优化</h2> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">sort_3</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    冒泡排序，后方有序数据的遍历次数
+    :param numbers: 待排序列表
+    &quot;&quot;&quot;</span>
+    length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span>
+    sort_border <span class="token operator">=</span> length <span class="token operator">-</span> <span class="token number">1</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        is_sorted <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>sort_border<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                tmp <span class="token operator">=</span> numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                numbers<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
+                numbers<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp
+                is_sorted <span class="token operator">=</span> <span class="token boolean">False</span>
+                sort_border <span class="token operator">=</span> j
+        <span class="token keyword">if</span> is_sorted<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>找到未排序的最大值，该值后面的值都是有序的，不必再排。</p></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/12/2022, 11:34:56 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/学习/python/python学习笔记(2).html" class="prev">
+        python学习笔记(2)
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2d816148.js" defer></script><script src="/assets/js/2.232ec699.js" defer></script><script src="/assets/js/21.e98af7c6.js" defer></script>
+  </body>
+</html>
