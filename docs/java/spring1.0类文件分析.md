@@ -1,8 +1,8 @@
 # spring1.0类文件分析
 
 ## 所有源文件
-| 类 |代码行|源码行|
-|:---|:---:|:---:|
+| 类 |代码行|源码行|描述|
+|:---|:---:|:---:|:---|
 |AbstractAdvisorAutoProxyCreator|123|48|
 |AbstractApplicationContext|502|224|
 |AbstractAutoProxyCreator|319|134|
@@ -135,8 +135,8 @@
 |ClassEditor|45|17|
 |ClassFilter|49|9|
 |ClassFilters|72|38|
-|ClassLoaderAnalyzerInterceptor|49|20|
-|ClassLoaderUtils|66|22|
+|~~ClassLoaderAnalyzerInterceptor~~|49|20|动态代理，打印类加载器继承体系的日志信息
+|~~ClassLoaderUtils~~|66|22|类加载器的继承体系获取|
 |ClassPathResource|118|61|
 |ClassPathXmlApplicationContext|82|23|
 |CleanupFailureDataAccessException|38|6|
