@@ -225,7 +225,7 @@
 |EventPublicationInterceptor|57|22|
 |ExpectedLookupTemplate|59|17|
 |ExpressionEvaluationUtils|131|43|
-|FactoryBean|68|6|
+|FactoryBean|68|6|工厂bean
 |FactoryBeanCircularReferenceException|38|6|
 |FatalBeanException|45|9|
 |FieldError|102|35|
@@ -279,7 +279,7 @@
 |HttpServletBean|102|35|
 |IllegalTransactionStateException|36|9|
 |IncorrectUpdateSemanticsDataAccessException|53|10|
-|InitializingBean|49|4|
+|InitializingBean|49|4|初始化bean接口
 |InputStreamResource|79|32|
 |InputStreamSource|38|6|
 |InterceptorAndDynamicMethodMatcher|42|11|
@@ -368,8 +368,8 @@
 |MethodBeforeAdviceInterceptor|49|14|
 |MethodInvocationException|42|10|
 |MethodInvocationFactory|38|10|
-|MethodInvoker|226|92|
-|MethodInvokingFactoryBean|121|33|
+|MethodInvoker|226|92|方法反射调用
+|MethodInvokingFactoryBean|121|33|方法反射调用的工厂bean
 |MethodInvokingJobDetailFactoryBean|144|71|
 |MethodInvokingTimerTaskFactoryBean|105|48|
 |MethodMapTransactionAttributeSource|162|82|
