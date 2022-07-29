@@ -1,8 +1,8 @@
 # spring1.0类文件分析
 
 ## 所有源文件
-| 类 |代码行|源码行|描述|
-|:---|:---:|:---:|:---|
+| 类 |代码行|源码行|描述|日期|
+|:---|:---:|:---:|:---|:---|
 |AbstractAdvisorAutoProxyCreator|123|48|
 |AbstractApplicationContext|502|224|
 |AbstractAutoProxyCreator|319|134|
@@ -89,8 +89,8 @@
 |BeanDefinitionRegistry|98|14|
 |BeanDefinitionStoreException|55|23|
 |BeanDefinitionValidationException|37|10|
-|BeanFactory|142|9|
-|BeanFactoryAware|51|5|
+|~~BeanFactory~~|142|9|Bean工厂，提供获取bean实例的接口|20220729
+|~~BeanFactoryAware~~|51|5|只有设置Bean工厂的方法|20220729
 |BeanFactoryBootstrap|126|55|
 |BeanFactoryLocator|62|5|
 |BeanFactoryPostProcessor|51|5|
@@ -215,7 +215,7 @@
 |DefaultXmlBeanDefinitionParser|595|450|
 |DelegatingIntroductionInterceptor|137|46|
 |DispatcherServlet|564|296|
-|DisposableBean|44|4|
+|~~DisposableBean~~|44|4|Bean销毁时的接口|20220729
 |DriverManagerDataSource|156|71|
 |DynamicMethodMatcher|41|11|
 |DynamicMethodMatcherPointcutAdvisor|77|41|
@@ -225,7 +225,7 @@
 |EventPublicationInterceptor|57|22|
 |ExpectedLookupTemplate|59|17|
 |ExpressionEvaluationUtils|131|43|
-|FactoryBean|68|6|工厂bean
+|~~FactoryBean~~|68|6|工厂bean，如果配置了一个FactoryBean，其通过spring获取到的Bean是其getObject方法的返回值，而不是FactoryBean类型的对象|20220728
 |FactoryBeanCircularReferenceException|38|6|
 |FatalBeanException|45|9|
 |FieldError|102|35|
@@ -269,7 +269,7 @@
 |HibernateTemplate|585|396|
 |HibernateTransactionManager|550|307|
 |HibernateTransactionObject|96|39|
-|HierarchicalBeanFactory|39|4|
+|~~HierarchicalBeanFactory~~|39|4|提供设置父级Bean工厂的能力|20200729
 |HierarchicalMessageSource|41|5|
 |HierarchicalThemeSource|41|5|
 |HotSwappableTargetSource|98|35|
@@ -328,7 +328,7 @@
 |JstlView|47|11|
 |JtaTransactionManager|423|242|
 |LastModified|46|5|
-|ListableBeanFactory|116|11|
+|~~ListableBeanFactory~~|116|11|提供批量获取工厂内Bean信息的能力|20220729
 |ListFactoryBean|101|52|
 |LobCreator|129|21|
 |LobHandler|127|13|
@@ -368,8 +368,8 @@
 |MethodBeforeAdviceInterceptor|49|14|
 |MethodInvocationException|42|10|
 |MethodInvocationFactory|38|10|
-|MethodInvoker|226|92|方法反射调用
-|MethodInvokingFactoryBean|121|33|方法反射调用的工厂bean
+|~~MethodInvoker~~|226|92|方法反射调用
+|~~MethodInvokingFactoryBean~~|121|33|方法反射调用的工厂bean
 |MethodInvokingJobDetailFactoryBean|144|71|
 |MethodInvokingTimerTaskFactoryBean|105|48|
 |MethodMapTransactionAttributeSource|162|82|
