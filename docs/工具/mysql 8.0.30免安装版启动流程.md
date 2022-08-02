@@ -12,7 +12,7 @@
 
 ### 创建文件夹data和文件my.ini
 
-![image-20220801151607076](assets\image-20220801151607076.png)
+![image-20220801151607076](assets/image-20220801151607076.png)
 
 ### 在my.ini中编写配置信息
 
@@ -43,11 +43,11 @@ default-storage-engine=INNODB
 
 ### 以管理员身份运行power shell
 
-![image-20220801152221342](assets\image-20220801152221342.png)
+![image-20220801152221342](assets/image-20220801152221342.png)
 
 ### 进入到mysql解压后的bin目录
 
-![image-20220801152322516](assets\image-20220801152322516.png)
+![image-20220801152322516](assets/image-20220801152322516.png)
 
 ### 执行命令
 
@@ -55,13 +55,13 @@ default-storage-engine=INNODB
 mysqld --initialize --console
 ```
 
-![image-20220801152446305](assets\image-20220801152446305.png)
+![image-20220801152446305](assets/image-20220801152446305.png)
 
 执行成功时，会得到一个临时密码，我这里得到的是：_DuTepo_P1+t。
 
 data目录也会生成一些初始化文件：
 
-![image-20220801152707912](assets\image-20220801152707912.png)
+![image-20220801152707912](assets/image-20220801152707912.png)
 
 ## 安装MySQL服务，并启动服务
 
@@ -69,13 +69,13 @@ data目录也会生成一些初始化文件：
 
 因为之前安装过mysql 5.7版本，此处我用了服务名mysql8
 
-![image-20220801153048178](assets\image-20220801153048178.png)
+![image-20220801153048178](assets/image-20220801153048178.png)
 
 
 
 执行命令：net start [服务名]
 
-![image-20220801153142715](assets\image-20220801153142715.png)
+![image-20220801153142715](assets/image-20220801153142715.png)
 
 ## 登录并修改密码
 
@@ -85,7 +85,7 @@ data目录也会生成一些初始化文件：
 mysql -uroot -p_DuTepo_P1+t
 ```
 
-![image-20220801153427244](assets\image-20220801153427244.png)
+![image-20220801153427244](assets/image-20220801153427244.png)
 
 ### 修改密码
 
@@ -93,7 +93,7 @@ mysql -uroot -p_DuTepo_P1+t
 alter user 'root'@'localhost' IDENTIFIED BY 'mypassword';
 ```
 
-![image-20220801154731559](assets\image-20220801154731559.png)
+![image-20220801154731559](assets/image-20220801154731559.png)
 
 修改完刷新一下：
 
@@ -105,19 +105,19 @@ flush privileges;
 
 退出，测试旧密码，已经不能登录。
 
-![image-20220801154856887](assets\image-20220801154856887.png)
+![image-20220801154856887](assets/image-20220801154856887.png)
 
 
 
 使用新密码，登录成功。
 
-![image-20220801154950875](assets\image-20220801154950875.png)
+![image-20220801154950875](assets/image-20220801154950875.png)
 
 ## 使用navicat登录
 
 报错。
 
-![image-20220801155309611](assets\image-20220801155309611.png)
+![image-20220801155309611](assets/image-20220801155309611.png)
 
 执行命令：
 
@@ -125,7 +125,7 @@ flush privileges;
 alter user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mypassword';
 ```
 
-![image-20220801155553072](assets\image-20220801155553072.png)
+![image-20220801155553072](assets/image-20220801155553072.png)
 
 
 
