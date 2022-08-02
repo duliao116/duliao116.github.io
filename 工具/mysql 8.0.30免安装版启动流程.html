@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mysql 8.0.30免安装版启动流程 | 沐小家</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="沐小家的故事">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.d9d96a95.js" as="script"><link rel="preload" href="/assets/js/2.d471f96a.js" as="script"><link rel="preload" href="/assets/js/44.fac42efd.js" as="script"><link rel="prefetch" href="/assets/js/10.450de4d5.js"><link rel="prefetch" href="/assets/js/11.d197257b.js"><link rel="prefetch" href="/assets/js/12.316bae10.js"><link rel="prefetch" href="/assets/js/13.f1d0cdc8.js"><link rel="prefetch" href="/assets/js/14.a94322c1.js"><link rel="prefetch" href="/assets/js/15.16be202c.js"><link rel="prefetch" href="/assets/js/16.59b42dec.js"><link rel="prefetch" href="/assets/js/17.3a27b5cb.js"><link rel="prefetch" href="/assets/js/18.977d1ba9.js"><link rel="prefetch" href="/assets/js/19.5bc54529.js"><link rel="prefetch" href="/assets/js/20.cb83d1d2.js"><link rel="prefetch" href="/assets/js/21.af99e2be.js"><link rel="prefetch" href="/assets/js/22.a5c0ed6d.js"><link rel="prefetch" href="/assets/js/23.0aa2cc35.js"><link rel="prefetch" href="/assets/js/24.ea87cddc.js"><link rel="prefetch" href="/assets/js/25.b1597764.js"><link rel="prefetch" href="/assets/js/26.7da9cea9.js"><link rel="prefetch" href="/assets/js/27.b556c547.js"><link rel="prefetch" href="/assets/js/28.8a3923a4.js"><link rel="prefetch" href="/assets/js/29.0eead4eb.js"><link rel="prefetch" href="/assets/js/3.b08e2eba.js"><link rel="prefetch" href="/assets/js/30.369a33c0.js"><link rel="prefetch" href="/assets/js/31.df586d3f.js"><link rel="prefetch" href="/assets/js/32.84d562fa.js"><link rel="prefetch" href="/assets/js/33.01d45c9c.js"><link rel="prefetch" href="/assets/js/34.097bf141.js"><link rel="prefetch" href="/assets/js/35.c5bf0df8.js"><link rel="prefetch" href="/assets/js/36.1432fa16.js"><link rel="prefetch" href="/assets/js/37.fac0b594.js"><link rel="prefetch" href="/assets/js/38.4c0d5fdd.js"><link rel="prefetch" href="/assets/js/39.ea426139.js"><link rel="prefetch" href="/assets/js/4.312ac0f9.js"><link rel="prefetch" href="/assets/js/40.b6702568.js"><link rel="prefetch" href="/assets/js/41.3b9ddbd7.js"><link rel="prefetch" href="/assets/js/42.2056ad1a.js"><link rel="prefetch" href="/assets/js/43.8b4ab181.js"><link rel="prefetch" href="/assets/js/45.9bbd7431.js"><link rel="prefetch" href="/assets/js/46.9cc5cd48.js"><link rel="prefetch" href="/assets/js/47.964ef5a9.js"><link rel="prefetch" href="/assets/js/5.855f58f9.js"><link rel="prefetch" href="/assets/js/6.62c6ba4e.js"><link rel="prefetch" href="/assets/js/7.8b45030c.js"><link rel="prefetch" href="/assets/js/8.a4655199.js"><link rel="prefetch" href="/assets/js/9.7c5d2260.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">沐小家</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/主页/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习" class="dropdown-title"><span class="title">学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习" class="mobile-dropdown-title"><span class="title">学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/学习/DDD学习笔记/" class="nav-link">
+  DDD学习笔记
+</a></li><li class="dropdown-item"><!----> <a href="/学习/英语/" class="nav-link">
+  英语
+</a></li><li class="dropdown-item"><!----> <a href="/学习/修身/" class="nav-link">
+  修身
+</a></li><li class="dropdown-item"><!----> <a href="/学习/python/" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><a href="/工作/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/工具/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/技巧/" class="nav-link">
+  技巧
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/主页/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习" class="dropdown-title"><span class="title">学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习" class="mobile-dropdown-title"><span class="title">学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/学习/DDD学习笔记/" class="nav-link">
+  DDD学习笔记
+</a></li><li class="dropdown-item"><!----> <a href="/学习/英语/" class="nav-link">
+  英语
+</a></li><li class="dropdown-item"><!----> <a href="/学习/修身/" class="nav-link">
+  修身
+</a></li><li class="dropdown-item"><!----> <a href="/学习/python/" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><a href="/工作/" class="nav-link">
+  工作
+</a></div><div class="nav-item"><a href="/工具/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><a href="/技巧/" class="nav-link">
+  技巧
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>工具</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/%E5%B7%A5%E5%85%B7/" aria-current="page" class="sidebar-link">概述</a></li><li><a href="/工具/gh-pages.html" class="sidebar-link">gh-pages 配合vuepress</a></li><li><a href="/工具/git.html" class="sidebar-link">git常用命令</a></li><li><a href="/工具/idea_mac_keys.html" class="sidebar-link">IntelliJ IDEA For Mac 快捷键</a></li><li><a href="/工具/maven.html" class="sidebar-link">maven使用技巧</a></li><li><a href="/工具/mysql 8.0.30免安装版启动流程.html" class="active sidebar-link">mysql 8.0.30免安装版启动流程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/工具/mysql 8.0.30免安装版启动流程.html#下载mysql免安装压缩包" class="sidebar-link">下载mysql免安装压缩包</a></li><li class="sidebar-sub-header"><a href="/工具/mysql 8.0.30免安装版启动流程.html#解压到任意目录" class="sidebar-link">解压到任意目录</a></li><li class="sidebar-sub-header"><a href="/工具/mysql 8.0.30免安装版启动流程.html#配置" class="sidebar-link">配置</a></li><li class="sidebar-sub-header"><a href="/工具/mysql 8.0.30免安装版启动流程.html#执行初始化命令" class="sidebar-link">执行初始化命令</a></li><li class="sidebar-sub-header"><a href="/工具/mysql 8.0.30免安装版启动流程.html#安装mysql服务-并启动服务" class="sidebar-link">安装MySQL服务，并启动服务</a></li><li class="sidebar-sub-header"><a href="/工具/mysql 8.0.30免安装版启动流程.html#登录并修改密码" class="sidebar-link">登录并修改密码</a></li><li class="sidebar-sub-header"><a href="/工具/mysql 8.0.30免安装版启动流程.html#使用navicat登录" class="sidebar-link">使用navicat登录</a></li></ul></li><li><a href="/工具/批量压缩.html" class="sidebar-link">批量压缩</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mysql-8-0-30免安装版启动流程"><a href="#mysql-8-0-30免安装版启动流程" class="header-anchor">#</a> mysql 8.0.30免安装版启动流程</h1> <h2 id="下载mysql免安装压缩包"><a href="#下载mysql免安装压缩包" class="header-anchor">#</a> 下载mysql免安装压缩包</h2> <p>下载地址：https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.30-winx64.zip</p> <h2 id="解压到任意目录"><a href="#解压到任意目录" class="header-anchor">#</a> 解压到任意目录</h2> <p>我的解压目录是：D:\soft\mysql-8.0.30-winx64</p> <h2 id="配置"><a href="#配置" class="header-anchor">#</a> 配置</h2> <h3 id="创建文件夹data和文件my-ini"><a href="#创建文件夹data和文件my-ini" class="header-anchor">#</a> 创建文件夹data和文件my.ini</h3> <p><img src="assets%5Cimage-20220801151607076.png" alt="image-20220801151607076"></p> <h3 id="在my-ini中编写配置信息"><a href="#在my-ini中编写配置信息" class="header-anchor">#</a> 在my.ini中编写配置信息</h3> <div class="language-ini line-numbers-mode"><pre class="language-ini"><code><span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">mysql</span><span class="token punctuation">]</span></span>
+<span class="token comment"># 设置mysql客户端默认字符集</span>
+<span class="token key attr-name">default-character-set</span><span class="token punctuation">=</span><span class="token value attr-value">utf8mb4</span>
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">mysqld</span><span class="token punctuation">]</span></span>
+<span class="token comment">#设置3306端口</span>
+<span class="token key attr-name">port</span> <span class="token punctuation">=</span> <span class="token value attr-value">3306</span>
+<span class="token comment"># 设置mysql的安装目录</span>
+<span class="token key attr-name">basedir</span><span class="token punctuation">=</span><span class="token value attr-value">D:/soft/mysql-8.0.30-winx64</span>
+<span class="token comment"># 设置mysql数据库的数据的存放目录</span>
+<span class="token key attr-name">datadir</span><span class="token punctuation">=</span><span class="token value attr-value">D:/soft/mysql-8.0.30-winx64/data</span>
+<span class="token comment"># 允许最大连接数</span>
+<span class="token key attr-name">max_connections</span><span class="token punctuation">=</span><span class="token value attr-value">200</span>
+<span class="token comment"># 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统</span>
+<span class="token key attr-name">max_connect_errors</span><span class="token punctuation">=</span><span class="token value attr-value">20</span>
+<span class="token comment"># 服务端使用的字符集默认为8比特编码的latin1字符集</span>
+<span class="token key attr-name">character-set-server</span><span class="token punctuation">=</span><span class="token value attr-value">utf8mb4</span>
+<span class="token comment"># 创建新表时将使用的默认存储引擎</span>
+<span class="token key attr-name">default-storage-engine</span><span class="token punctuation">=</span><span class="token value attr-value">INNODB</span>
+<span class="token comment"># 忽略密码</span>
+<span class="token comment"># skip-grant-tables</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="执行初始化命令"><a href="#执行初始化命令" class="header-anchor">#</a> 执行初始化命令</h2> <h3 id="以管理员身份运行power-shell"><a href="#以管理员身份运行power-shell" class="header-anchor">#</a> 以管理员身份运行power shell</h3> <p><img src="assets%5Cimage-20220801152221342.png" alt="image-20220801152221342"></p> <h3 id="进入到mysql解压后的bin目录"><a href="#进入到mysql解压后的bin目录" class="header-anchor">#</a> 进入到mysql解压后的bin目录</h3> <p><img src="assets%5Cimage-20220801152322516.png" alt="image-20220801152322516"></p> <h3 id="执行命令"><a href="#执行命令" class="header-anchor">#</a> 执行命令</h3> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>mysqld <span class="token operator">--</span>initialize <span class="token operator">--</span>console
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="assets%5Cimage-20220801152446305.png" alt="image-20220801152446305"></p> <p>执行成功时，会得到一个临时密码，我这里得到的是：_DuTepo_P1+t。</p> <p>data目录也会生成一些初始化文件：</p> <p><img src="assets%5Cimage-20220801152707912.png" alt="image-20220801152707912"></p> <h2 id="安装mysql服务-并启动服务"><a href="#安装mysql服务-并启动服务" class="header-anchor">#</a> 安装MySQL服务，并启动服务</h2> <p>执行命令：mysqld --install [服务名]</p> <p>因为之前安装过mysql 5.7版本，此处我用了服务名mysql8</p> <p><img src="assets%5Cimage-20220801153048178.png" alt="image-20220801153048178"></p> <p>执行命令：net start [服务名]</p> <p><img src="assets%5Cimage-20220801153142715.png" alt="image-20220801153142715"></p> <h2 id="登录并修改密码"><a href="#登录并修改密码" class="header-anchor">#</a> 登录并修改密码</h2> <h3 id="使用临时密码登录"><a href="#使用临时密码登录" class="header-anchor">#</a> 使用临时密码登录</h3> <div class="language-powershell line-numbers-mode"><pre class="language-powershell"><code>mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p_DuTepo_P1<span class="token operator">+</span>t
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="assets%5Cimage-20220801153427244.png" alt="image-20220801153427244"></p> <h3 id="修改密码"><a href="#修改密码" class="header-anchor">#</a> 修改密码</h3> <div class="language-sql line-numbers-mode"><pre class="language-sql"><code><span class="token keyword">alter</span> <span class="token keyword">user</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'mypassword'</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="assets%5Cimage-20220801154731559.png" alt="image-20220801154731559"></p> <p>修改完刷新一下：</p> <div class="language-sql line-numbers-mode"><pre class="language-sql"><code>flush <span class="token keyword">privileges</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="测试密码"><a href="#测试密码" class="header-anchor">#</a> 测试密码</h3> <p>退出，测试旧密码，已经不能登录。</p> <p><img src="assets%5Cimage-20220801154856887.png" alt="image-20220801154856887"></p> <p>使用新密码，登录成功。</p> <p><img src="assets%5Cimage-20220801154950875.png" alt="image-20220801154950875"></p> <h2 id="使用navicat登录"><a href="#使用navicat登录" class="header-anchor">#</a> 使用navicat登录</h2> <p>报错。</p> <p><img src="assets%5Cimage-20220801155309611.png" alt="image-20220801155309611"></p> <p>执行命令：</p> <div class="language-sql line-numbers-mode"><pre class="language-sql"><code><span class="token keyword">alter</span> <span class="token keyword">user</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">WITH</span> mysql_native_password <span class="token keyword">BY</span> <span class="token string">'mypassword'</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="assets%5Cimage-20220801155553072.png" alt="image-20220801155553072"></p> <p>再次连接成功。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/1/2022, 4:13:22 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/工具/maven.html" class="prev">
+        maven使用技巧
+      </a></span> <span class="next"><a href="/工具/批量压缩.html">
+        批量压缩
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.d9d96a95.js" defer></script><script src="/assets/js/2.d471f96a.js" defer></script><script src="/assets/js/44.fac42efd.js" defer></script>
+  </body>
+</html>
