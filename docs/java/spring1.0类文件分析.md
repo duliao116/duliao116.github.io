@@ -168,7 +168,7 @@
 |ContextLoaderListener|66|16|||
 |ContextLoaderServlet|114|28|||
 |ContextRefreshedEvent|41|11|||
-|ContextResourceEditor|50|13|||
+|ContextResourceEditor|50|13||20220805|
 |ContextSingletonBeanFactoryLocator|132|49|||
 |ControlFlow|37|6|||
 |ControlFlowFactory|154|66|||
@@ -208,7 +208,7 @@
 |DefaultMultipartHttpServletRequest|67|26|||
 |DefaultPointcutAdvisor|95|50|||
 |DefaultPropertiesPersister|330|226|||
-|DefaultResourceLoader|70|22|||
+|~~DefaultResourceLoader~~|70|22||20220805|
 |DefaultTransactionAttribute|65|20|||
 |DefaultTransactionDefinition|180|86|||
 |DefaultTransactionStatus|122|45|||
@@ -478,11 +478,11 @@
 |ResourceBundleMessageSource|160|69|||
 |ResourceBundleThemeSource|105|56|||
 |ResourceBundleViewResolver|112|46|||
-|ResourceEditor|91|33|||
+|ResourceEditor|91|33||20220805|
 |ResourceEntityResolver|85|40|||
 |ResourceFactoryBean|56|18|||
 |ResourceHolderSupport|94|28|||
-|ResourceLoader|58|5|||
+|~~ResourceLoader~~|58|5||20220805|
 |ResourceLoaderAware|54|5|||
 |ResourceServlet|79|32|||
 |ResponseTimeMonitor|55|7|||
@@ -658,3 +658,58 @@
 |XmlBeanFactory|87|20|||
 |XmlViewResolver|107|43|||
 |XmlWebApplicationContext|166|76|||
+
+## org.springframework.core.io.ResourceLoader
+@startuml
+!theme plain
+
+skinparam linetype ortho
+
+interface ResourceLoader << interface >>
+
+class DefaultResourceLoader
+
+interface ApplicationContext << interface >>
+
+
+ResourceLoader         <|.[#008200]. DefaultResourceLoader
+ResourceLoader         <|-[#008200]- ApplicationContext 
+
+
+note right of ResourceLoader
+资源加载接口，返回一个资源
+end note
+
+note bottom of DefaultResourceLoader
+主要是实现了通过<b>类路径</b>加载资源的方法
+end note
+
+note bottom of ApplicationContext
+留给子类实现加载资源的方法，不同的加载方式构建成了不同的子类
+end note
+
+@enduml
+
+## org.springframework.core.io.ResourceEditor
+@startuml
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+
+interface PropertyEditor << interface >>
+note right: 对象的属性编辑器，之前主要针对IDE的可视化操作<b>可编辑的字符串</b>和java对象的转换
+
+class PropertyEditorSupport
+note right: 属性编辑器的Support类，实现了默认的方法，以及属性值变化时的时间通知
+
+class ResourceEditor
+note right: 资源属性的编辑器，将文本转换为Resource，其实就是配置的资源路径转换为Resource对象
+
+class ContextResourceEditor
+note right: 通过ApplicationContext加载指定路径得到Resource对象
+
+PropertyEditor <|.[#008200]. PropertyEditorSupport
+PropertyEditorSupport <|-[#000082]- ResourceEditor
+ResourceEditor <|-[#000082]-  ContextResourceEditor
+@enduml
