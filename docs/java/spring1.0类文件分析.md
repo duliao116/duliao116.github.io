@@ -6,10 +6,10 @@
 |AbstractAdvisorAutoProxyCreator|123|48|||
 |AbstractApplicationContext|502|224|||
 |AbstractAutoProxyCreator|319|134|||
-|AbstractAutowireCapableBeanFactory|841|565|||
+|~~AbstractAutowireCapableBeanFactory~~|841|565||20220808|
 |AbstractBeanDefinition|121|42|||
 |AbstractBeanDefinitionReader|62|17|||
-|AbstractBeanFactory|579|319|||
+|~~AbstractBeanFactory~~|579|319||20220808|
 |AbstractCachingViewResolver|119|47|||
 |AbstractCommandController|97|25|||
 |AbstractController|131|27|||
@@ -80,7 +80,7 @@
 |AttributesPrototypeTargetSourceCreator|55|23|||
 |AttributesThreadLocalTargetSourceCreator|55|23|||
 |AttributesTransactionAttributeSource|190|86|||
-|AutowireCapableBeanFactory|116|17|||
+|~~AutowireCapableBeanFactory~~|116|17||20220808|
 |BadSqlGrammarException|70|18|||
 |BaseCommandController|333|84|||
 |BatchPreparedStatementSetter|56|7|||
@@ -153,8 +153,8 @@
 |ComposablePointcut|87|43|||
 |ConcurrencyThrottleInterceptor|85|45|||
 |ConfigurableApplicationContext|83|11|||
-|ConfigurableBeanFactory|118|15|||
-|ConfigurableListableBeanFactory|40|6|||
+|~~ConfigurableBeanFactory~~|118|15||20220808|
+|~~ConfigurableListableBeanFactory~~|40|6||20220808|
 |ConfigurableWebApplicationContext|70|9|||
 |ConnectionHolder|50|12|||
 |ConsoleListener|40|8|||
@@ -201,7 +201,7 @@
 |DefaultAopProxyFactory|51|17|||
 |DefaultBeanFactoryReference|46|17|||
 |DefaultIntroductionAdvisor|111|63|||
-|DefaultListableBeanFactory|266|174|||
+|~~DefaultListableBeanFactory~~|266|174||20220808|
 |DefaultLobHandler|133|76|||
 |DefaultLocatorFactory|49|11|||
 |DefaultMessageSourceResolvable|137|69|||
@@ -564,7 +564,7 @@
 |SQLWarningException|51|11|||
 |StatementCallback|61|6|||
 |StaticApplicationContext|104|37|||
-|StaticListableBeanFactory|147|104|||
+|~~StaticListableBeanFactory~~|147|104||20220808|
 |StaticMessageSource|62|21|||
 |StaticMethodMatcher|38|11|||
 |StaticMethodMatcherPointcut|41|12|||
@@ -655,7 +655,7 @@
 |XAPoolNativeJdbcExtractor|86|44|||
 |XmlBeanDefinitionParser|56|9|||
 |XmlBeanDefinitionReader|188|96|||
-|XmlBeanFactory|87|20|||
+|~~XmlBeanFactory~~|87|20||20220808|
 |XmlViewResolver|107|43|||
 |XmlWebApplicationContext|166|76|||
 
@@ -665,11 +665,11 @@
 
 skinparam linetype ortho
 
-interface ResourceLoader << interface >>
+ResourceLoader << >>
 
 class DefaultResourceLoader
 
-interface ApplicationContext << interface >>
+ApplicationContext << >>
 
 
 ResourceLoader         <|.[#008200]. DefaultResourceLoader
@@ -713,3 +713,82 @@ PropertyEditor <|.[#008200]. PropertyEditorSupport
 PropertyEditorSupport <|-[#000082]- ResourceEditor
 ResourceEditor <|-[#000082]-  ContextResourceEditor
 @enduml
+
+## org.springframework.beans.factory.BeanFactory
+
+@startuml
+!theme mars
+top to bottom direction
+skinparam linetype ortho
+
+interface BeanFactory << interface >>
+
+interface HierarchicalBeanFactory << interface >>
+
+interface ListableBeanFactory << interface >>
+
+interface AutowireCapableBeanFactory << interface >>
+
+
+interface ConfigurableBeanFactory << interface >>
+
+interface ConfigurableListableBeanFactory << interface >>
+
+class AbstractBeanFactory
+
+class AbstractAutowireCapableBeanFactory
+
+class DefaultListableBeanFactory
+
+class StaticListableBeanFactory
+
+class XmlBeanFactory
+
+
+
+BeanFactory <|-[#008200]- HierarchicalBeanFactory
+BeanFactory <|-[#008200]- ListableBeanFactory
+BeanFactory <|-[#008200]- AutowireCapableBeanFactory
+
+HierarchicalBeanFactory <|-[#008200]- ConfigurableBeanFactory
+HierarchicalBeanFactory <|.[#008200]. AbstractBeanFactory                 
+
+ListableBeanFactory <|.[#008200]. StaticListableBeanFactory
+ListableBeanFactory <|-[#008200]- ConfigurableListableBeanFactory
+
+AutowireCapableBeanFactory <|.[#008200]. AbstractAutowireCapableBeanFactory
+AutowireCapableBeanFactory <|-[#008200]- ConfigurableListableBeanFactory
+
+ConfigurableBeanFactory <|.[#008200]. AbstractBeanFactory
+ConfigurableBeanFactory <|-[#008200]- ConfigurableListableBeanFactory
+
+AbstractBeanFactory <|-[#008200]- AbstractAutowireCapableBeanFactory
+           
+AbstractAutowireCapableBeanFactory <|-[#008200]- DefaultListableBeanFactory
+
+ConfigurableListableBeanFactory <|.[#008200]. DefaultListableBeanFactory   
+
+DefaultListableBeanFactory <|-[#008200]- XmlBeanFactory
+
+json 类图说明 {
+   "BeanFactory":"Bean工厂，加载Bena的配置并生成Bean对象",
+   "HierarchicalBeanFactory":"增加了获取父级BeanFactory的方法,如果当前工厂找不到bean，就去父级工厂找",
+   "ListableBeanFactory":"增加了遍历工厂内所有Bean的能力",
+   "AutowireCapableBeanFactory":"增加Bean已经Bean属性的Autowire能力",
+   "ConfigurableBeanFactory":"可配置的BeanFactory",
+   "ConfigurableListableBeanFactory":"继承多种特性，并且增加了预实例化单例Bean的方法",
+   "AbstractBeanFactory":"Bean工厂模板类，实现了getBean的基本逻辑",
+   "AbstractAutowireCapableBeanFactory":"实现了autowire bean的相关方法",
+   "DefaultListableBeanFactory":"实现了一些访问Bean集合的方法",
+   "StaticListableBeanFactory":"内部维护一个map，可以通过编程添加已经存在的bean",
+   "XmlBeanFactory":"构造方法中开始加载spring xml配置文件"
+}
+
+@enduml
+
+## org.springframework.beans.BeanWrapper
+
+
+
+## org.springframework.beans.factory.config.BeanDefinition
+
