@@ -665,11 +665,11 @@
 
 skinparam linetype ortho
 
-ResourceLoader << >>
+interface ResourceLoader
 
 class DefaultResourceLoader
 
-ApplicationContext << >>
+interface ApplicationContext
 
 
 ResourceLoader         <|.[#008200]. DefaultResourceLoader
