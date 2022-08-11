@@ -788,7 +788,18 @@ json 类图说明 {
 
 ## org.springframework.beans.BeanWrapper
 
+@startuml
+!theme plain
+top to bottom direction
+skinparam linetype ortho
 
+interface BeanWrapper << interface >>
+note right: Bean的包装，可以读取、赋值Bean的属性
+class BeanWrapperImpl
+note right:
+
+BeanWrapper <|.[#008200]. BeanWrapperImpl
+@enduml
 
 ## org.springframework.beans.factory.config.BeanDefinition
 
