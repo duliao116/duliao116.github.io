@@ -796,7 +796,7 @@ skinparam linetype ortho
 interface BeanWrapper << interface >>
 note right: Bean的包装，可以读取、赋值Bean的属性
 class BeanWrapperImpl
-note right:
+note right: Bean的包装，提供setPropertyValue和getPropertyValue相关的方法，是能够通过字符串的表示设置、获取Bean的属性值
 
 BeanWrapper <|.[#008200]. BeanWrapperImpl
 @enduml
