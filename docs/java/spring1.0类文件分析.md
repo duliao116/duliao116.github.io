@@ -803,3 +803,62 @@ BeanWrapper <|.[#008200]. BeanWrapperImpl
 
 ## org.springframework.beans.factory.config.BeanDefinition
 
+@startuml
+!theme mars
+top to bottom direction
+skinparam linetype ortho
+
+interface BeanDefinition << interface >> {
+  + getResourceDescription(): String
+  + getPropertyValues(): MutablePropertyValues
+  + getConstructorArgumentValues(): ConstructorArgumentValues
+}
+
+class AbstractBeanDefinition 
+class RootBeanDefinition
+class ChildBeanDefinition 
+class ConstructorArgumentValues 
+class MutablePropertyValues 
+
+BeanDefinition <|.[#008200].  AbstractBeanDefinition
+AbstractBeanDefinition <|-[#000082]- RootBeanDefinition
+AbstractBeanDefinition <|-[#000082]- ChildBeanDefinition
+
+BeanDefinition --> MutablePropertyValues
+BeanDefinition --> ConstructorArgumentValues
+
+
+
+@enduml
+
+| 类                        | 说明                                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| BeanDefinition            | Bean定义，获取Bean的属性、构造方法                           |
+| AbstractBeanDefinition    | 定义是否单例、是否懒加载等逻辑                               |
+| RootBeanDefinition        | 增加autowire，依赖坚持，初始化方法，销毁方法的等配置         |
+| ChildBeanDefinition       | 子类Bean的定义，可以覆盖父类的属性值                         |
+| ConstructorArgumentValues | 构造方法的参数集合，内部两个集合，一个按照顺序，另一个按照参数类型 |
+| MutablePropertyValues     | Bean定义的属性信息                                           |
+
+## org.springframework.beans.PropertyValues
+
+@startuml
+!theme mars
+top to bottom direction
+skinparam linetype ortho
+
+interface PropertyValues << interface >>
+note right: 配置属性集合
+class MutablePropertyValues
+note right: 可变的配置属性集合，可以对集合增删改查
+class ServletConfigPropertyValues
+note bottom: 从ServletConfig获取配置属性集合
+class ServletRequestParameterPropertyValues
+note bottom: 从HttpRequest中获取配置属性集合
+
+PropertyValues <|.. MutablePropertyValues
+MutablePropertyValues <|-- ServletConfigPropertyValues
+MutablePropertyValues <|-- ServletRequestParameterPropertyValues
+
+
+@enduml
