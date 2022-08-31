@@ -690,12 +690,62 @@ end note
 
 @enduml
 
-## org.springframework.core.io.ResourceEditor
+## PropertyEditor 
+
 @startuml
 !theme plain
 top to bottom direction
 skinparam linetype ortho
 
+class ByteArrayMultipartFileEditor
+class ClassEditor
+class ContextResourceEditor
+class CustomBooleanEditor
+class CustomDateEditor
+class CustomNumberEditor
+class FileEditor
+class JndiTemplateEditor
+class LocaleEditor
+class PropertiesEditor
+interface PropertyEditor << interface >>
+class PropertyEditorSupport
+class PropertyValuesEditor
+class ResourceEditor
+class StringArrayPropertyEditor
+class StringMultipartFileEditor
+class StringTrimmerEditor
+class TransactionAttributeEditor
+class TransactionAttributeSourceEditor
+class URLEditor
+
+ByteArrayMultipartFileEditor      -[#000082,plain]-^  PropertyEditorSupport            
+ClassEditor                       -[#000082,plain]-^  PropertyEditorSupport            
+ContextResourceEditor             -[#000082,plain]-^  ResourceEditor                   
+CustomBooleanEditor               -[#000082,plain]-^  PropertyEditorSupport            
+CustomDateEditor                  -[#000082,plain]-^  PropertyEditorSupport            
+CustomNumberEditor                -[#000082,plain]-^  PropertyEditorSupport            
+FileEditor                        -[#000082,plain]-^  PropertyEditorSupport            
+JndiTemplateEditor                -[#000082,plain]-^  PropertyEditorSupport            
+LocaleEditor                      -[#000082,plain]-^  PropertyEditorSupport            
+PropertiesEditor                  -[#000082,plain]-^  PropertyEditorSupport            
+PropertyEditorSupport             -[#008200,dashed]-^  PropertyEditor                   
+PropertyValuesEditor              -[#000082,plain]-^  PropertyEditorSupport            
+ResourceEditor                    -[#000082,plain]-^  PropertyEditorSupport            
+StringArrayPropertyEditor         -[#000082,plain]-^  PropertyEditorSupport            
+StringMultipartFileEditor         -[#000082,plain]-^  PropertyEditorSupport            
+StringTrimmerEditor               -[#000082,plain]-^  PropertyEditorSupport            
+TransactionAttributeEditor        -[#000082,plain]-^  PropertyEditorSupport            
+TransactionAttributeSourceEditor  -[#000082,plain]-^  PropertyEditorSupport            
+URLEditor                         -[#000082,plain]-^  PropertyEditorSupport
+@enduml
+
+将配置文件中的各种格式的字符串，转换为各种对象。
+
+## org.springframework.core.io.ResourceEditor
+@startuml
+!theme plain
+top to bottom direction
+skinparam linetype ortho
 
 interface PropertyEditor << interface >>
 note right: 对象的属性编辑器，之前主要针对IDE的可视化操作<b>可编辑的字符串</b>和java对象的转换
@@ -862,3 +912,24 @@ MutablePropertyValues <|-- ServletRequestParameterPropertyValues
 
 
 @enduml
+
+## org.springframework.context.MessageSource
+
+@startuml
+!theme mars
+top to bottom direction
+skinparam linetype ortho
+
+class AbstractMessageSource
+interface HierarchicalMessageSource << interface >>
+interface MessageSource << interface >>
+class ReloadableResourceBundleMessageSource
+class ResourceBundleMessageSource
+
+AbstractMessageSource                  -[#008200,dashed]-^  HierarchicalMessageSource             
+HierarchicalMessageSource              -[#008200,plain]-^  MessageSource                         
+ReloadableResourceBundleMessageSource  -[#000082,plain]-^  AbstractMessageSource                 
+ResourceBundleMessageSource            -[#000082,plain]-^  AbstractMessageSource
+@enduml
+
+参考[国际化MessageSource](./国际化MessageSource.md)
