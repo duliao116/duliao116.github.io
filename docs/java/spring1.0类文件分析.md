@@ -933,3 +933,46 @@ ResourceBundleMessageSource            -[#000082,plain]-^  AbstractMessageSource
 @enduml
 
 参考[国际化MessageSource](./国际化MessageSource.md)
+
+
+
+## ApplicationContext
+
+@startuml
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AbstractApplicationContext
+class AbstractXmlApplicationContext
+interface ApplicationContext << interface >>
+class ClassPathXmlApplicationContext
+class ComplexWebApplicationContext
+interface ConfigurableApplicationContext << interface >>
+interface ConfigurableWebApplicationContext << interface >>
+class FileSystemXmlApplicationContext
+interface ResourceLoader << interface >>
+class SimpleWebApplicationContext
+class StaticApplicationContext
+class StaticWebApplicationContext
+interface WebApplicationContext << interface >>
+class XmlWebApplicationContext
+
+AbstractApplicationContext         -[#008200,dashed]-^  ConfigurableApplicationContext    
+AbstractApplicationContext         -[#008200,dashed]-^  ResourceLoader                    
+AbstractXmlApplicationContext      -[#000082,plain]-^  AbstractApplicationContext        
+ApplicationContext                 -[#008200,plain]-^  ResourceLoader                    
+ClassPathXmlApplicationContext     -[#000082,plain]-^  AbstractXmlApplicationContext     
+ComplexWebApplicationContext       -[#000082,plain]-^  StaticWebApplicationContext       
+ConfigurableApplicationContext     -[#008200,plain]-^  ApplicationContext                
+ConfigurableWebApplicationContext  -[#008200,plain]-^  ConfigurableApplicationContext    
+ConfigurableWebApplicationContext  -[#008200,plain]-^  WebApplicationContext             
+FileSystemXmlApplicationContext    -[#000082,plain]-^  AbstractXmlApplicationContext     
+SimpleWebApplicationContext        -[#000082,plain]-^  StaticWebApplicationContext       
+StaticApplicationContext           -[#000082,plain]-^  AbstractApplicationContext        
+StaticWebApplicationContext        -[#008200,dashed]-^  ConfigurableWebApplicationContext 
+StaticWebApplicationContext        -[#000082,plain]-^  StaticApplicationContext          
+WebApplicationContext              -[#008200,plain]-^  ApplicationContext                
+XmlWebApplicationContext           -[#000082,plain]-^  AbstractXmlApplicationContext     
+XmlWebApplicationContext           -[#008200,dashed]-^  ConfigurableWebApplicationContext
+@enduml
