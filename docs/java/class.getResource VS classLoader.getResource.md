@@ -33,7 +33,7 @@ Test.class.getClassLoader().getResource(""), Test.class.getResource("app.propert
 
 ## 代码示例
 
-![image-20230711111947293](assets\image-20230711111947293.png)
+![image-20230711111947293](assets/image-20230711111947293.png)
 
 
 ~~~java
