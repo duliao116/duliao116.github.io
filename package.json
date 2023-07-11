@@ -9,7 +9,7 @@
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
     "nav": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress nav docs -f",
     "predeploy": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
-    "deploy": "set NODE_OPTIONS=--openssl-legacy-provider && gh-pages -d dist -b master -r git@github.com:duliao116/duliao116.github.io.git -u duliao116@163.com"
+    "deploy": "gh-pages -d dist -b master -r git@github.com:duliao116/duliao116.github.io.git -u duliao116@163.com"
   },
   "author": "",
   "license": "ISC",
