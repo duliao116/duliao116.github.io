@@ -114,7 +114,7 @@ private boolean hasNextService() {
             fail(service, "Error locating configuration files", x);
         }
     }
-    //给pending赋值
+    //给pending赋值，一个config文件中可能会有多条实现类的配置，每条配置是一个pending
     while ((pending == null) || !pending.hasNext()) {
         if (!configs.hasMoreElements()) {
             return false;
