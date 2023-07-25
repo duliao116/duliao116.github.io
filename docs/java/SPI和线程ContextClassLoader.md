@@ -67,7 +67,7 @@ h2就是这样：
 
 ### load()
 
-load(Class<S> service)方法，作为一个静态方法，其实就是一个静态构造方法，而且指定了构造方法的第二个参数是当前线程的ContextClassLoader。
+load(Class service)方法，作为一个静态方法，其实就是一个静态构造方法，而且指定了构造方法的第二个参数是当前线程的ContextClassLoader。
 
 ~~~java
 //私有的构造方法
